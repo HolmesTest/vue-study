@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <div id='app'>
+    <!--计算属性-->
+    <h2>{{fullName}}</h2>
+    <h2>{{fullName}}</h2>
+    <h2>{{fullName}}</h2>
+    <h2>{{fullName}}</h2>
+    <!--定义method-->
+    <h2>{{getName()}}</h2>
+    <h2>{{getName()}}</h2>
+    <h2>{{getName()}}</h2>
+    <h2>{{getName()}}</h2>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+     data: {
+        message: 'hello Vue.js',
+        firstName: '朱',
+        lastName: '锦波'
+      },
+      computed: {
+        fullName: function(){
+          console.log("computed执行。。")
+          return this.firstName + this.lastName;
+        }
+      },
+      methods: {
+        getName: function(){
+          console.log("method执行。。")
+          return this.firstName + this.lastName;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

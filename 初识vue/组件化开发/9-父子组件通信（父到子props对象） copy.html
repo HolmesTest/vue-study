@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <div id='app'>
+    <cpn  v-bind:cmessage="message"></cpn>
+  </div>
+  </script>
+  <template id="cpn">
+    <div>
+      <h2>{{cmessage}}</h2> 
+      <ul>
+        <li v-for="item in cbooks">{{item}}</li>
+      </ul>
+    </div>
+  </template>
+  <script src='../js/vue.js'></script>
+  <script>
+    //父传子：props
+    const cpn = {
+      template: '#cpn',
+      props: {
+        //基础属性检查（Null匹配任何类型）
+        //propa: Number,
+        //多个可能的类型
+        //propb: [Number,String],
+        //必填
+        //propc: {
+        //  type: String,
+        //  required: true
+        //},
+        //默认值
+        //propd: {
+        //  type: Number,
+        //  default: 100
+        //},
+        //带默认值对象、数组的默认值写法不一样，这个是一个default函数
+        //prope: {
+        //  type: Object,
+        //  default(){
+        //    return{message: 'hell0'}
+        //  }
+        //},
+        //自定义验证
+        //propf: {
+        //  validator(value){
+        //    return typeof(value) != 'undefind'
+        //  }
+        //},
+        //类型限制
+        //cbooks: Array,
+        cbooks: {
+          type: Array,
+          default(){
+            return ['123','456','789']
+          }
+        },
+        //cmessage: String
+        //默认值
+        cmessage: {
+          type: String,
+          default: '哈哈哈',
+          required: true
+        }
+      }
+    }
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '书籍',
+        bookes: ['哈姆雷特', '老人与海','西游记']
+      },
+      components: {
+        cpn
+      }
+    })
+  </script>
+</body>
+</html>

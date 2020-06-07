@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+</head>
+<body>
+  <div id='app'>
+    <cpn></cpn>
+    <cpn></cpn>
+    <button @click="btnClick">按钮</button>
+  </div>
+  <template id="cpn">
+    <div>子组件</div>
+  </template>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello Vue.js'
+      },
+      methods: {
+        btnClick(){
+          for(let i of this.$children){
+            i.showMessage();
+          }
+          //console.log(this.$children)
+        }
+      },
+      components: {
+        cpn:{
+          template: '#cpn',
+          methods: {
+            showMessage(){
+              console.log("showMessage")
+            }
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

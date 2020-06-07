@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <button>按钮1</button>
+  <button>按钮2</button>
+  <button>按钮3</button>
+  <button>按钮4</button>
+  <button>按钮5</button>
+  <input type="button" value="input1"/>
+  <input type="button" value="input2"/>
+  <input type="button" value="input3"/>
+  <input type="button" value="input4"/>
+  <input type="button" value="input5"/>
+  <script>
+    //1、此时可以看出var定义的name不收括号的限制，可以在括号外面随意访问
+    {
+      var name = "tom";
+      console.log(name);
+    }
+    console.log(name);
+    //2、引起的问题(此处不管点击按钮几，显示的i都是5,以前的解决方法：闭包)
+    var btns = document.getElementsByTagName('button');
+    for(var i = 0;i<btns.length;i++){
+      //btns[i].addEventListener('click',function(){
+      //  console.log('第'+i+'个按钮被点击。。');
+      //})
+      //闭包解决：函数是存在块级作用域的
+      (function(i){
+        btns[i].addEventListener('click',function(){
+        console.log('第'+i+'个按钮被点击。。');
+        })
+      })(i)
+    }
+    //3、let用法
+    let inpts = document.getElementsByTagName('input');
+    for(let i = 0 ;i<inpts.length;i++){
+      inpts[i].addEventListener('click',function(){
+        console.log('第'+i+'个input被点击。。');
+        })
+    }
+    
+  </script>
+</body>
+</html>

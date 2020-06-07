@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <script>
+    let persons = [
+      {
+        name : '张三',
+        age: 20
+      },
+      {
+        name : '李四',
+        age: 15
+      },
+      {
+        name : '王二',
+        age: 30
+      }
+    ];
+    for(let i in persons){
+      console.log(i);
+    }
+    for(let person of persons){
+      console.log(person.name);
+    }
+  </script>
+</body>
+</html>

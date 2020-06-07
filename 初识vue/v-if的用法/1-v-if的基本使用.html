@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <div id='app'>
+    <h1 v-if="sex ==1">尊敬的先生，上午好！</h1>
+    <h1 v-else-if="sex ==0">尊敬的女士，上午好！</h1>
+    <h1 v-else>无法判断您的性别奥！</h1>
+    <hr>
+    <h1>{{message}}</h1>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+     data: {
+        sex: 1
+      },
+      computed: {
+        message(){
+          let msg = '';
+          if(this.sex ==1){
+            msg="尊敬的先生，上午好！"
+          }else if(this.sex ==0){
+            msg="尊敬的女士，上午好！"
+          }else{
+            msg="无法判断您的性别奥！"
+          }
+          return msg;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

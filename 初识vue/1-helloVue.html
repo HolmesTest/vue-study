@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <!--当把这个元素挂载之后，解析是会根据双大括号去data中找对应的变量-->
+    <div id="app">
+        <h2>{{name}}</h2>
+        <p>{{message}}</p>
+    </div>
+
+    <!--引入vue.js-->
+    <script src="js/vue.js"></script>
+    <script>
+        //es6中定义变量用let，定义常量用const
+        const app = new Vue({
+            el: '#app', //用于挂载要管理的元素
+            data: { //定义数据
+                name: '张三',
+                message: '你好啊！骚年'
+            }
+        })
+    </script>
+</body>
+</html>

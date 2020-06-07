@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <dic id='app' v-cloak>
+    <h2>{{message}}</h2>
+  </dic>
+   <script src='../js/vue.js'></script>
+  <script>
+    setTimeout(function(){
+      const app = new Vue({
+        el: '#app',
+        data: {
+          message: 'hello Vue.js'
+        }
+      })
+    },1000)
+  </script>
+</body>
+</html>

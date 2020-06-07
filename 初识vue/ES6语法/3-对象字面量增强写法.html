@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <script>
+    {
+      //如下方式定义对象，大括号里面的东西就是对象字面量
+      const obj = {
+        name: '张三',
+        age: 30,
+        run: function(){
+          console.log("跑5公里。。。")
+        }
+      }
+
+      //1、属性增强写法(es5写法)
+      const name = '李四';
+      const age = 33;
+      const run = function(){
+        console.log("跑3公里。。。")
+      }
+      const obj1 = {
+        name: name,
+        age: age,
+        fun: run
+      }
+      console.log(obj1)
+      console.log('-------')
+      //es6写法
+      const obj2={name,age,run}
+      console.log(obj2)
+
+      //2、函数的增强写法（es5写法）
+      const x = {
+        run: function(){
+
+        },
+        eat: function(){
+
+        }
+      }
+      //es6写法
+      const y = {
+        run(){
+
+        },
+        eat(){
+          
+        }
+      }
+
+    }
+  </script>
+</body>
+</html>

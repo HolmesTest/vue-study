@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <script>
+    {
+      const i = 'js';
+      //i = 'java';  //这是行不通的
+      //const s; //这也是行不通的
+      //s= 'js'  
+      //如果是定义的对象或者数组，那么对象、数组里面的属性是可变的
+      const obj = {
+        name: 'tom',
+        age : 22
+      }
+      console.log(obj);
+      obj.name = 'jerry'
+      console.log(obj);
+
+      const arr = new Array();
+      arr[0]='test'
+      console.log(arr);
+      arr[0]='haha'
+      console.log(arr);
+    }
+
+  </script>
+</body>
+</html>

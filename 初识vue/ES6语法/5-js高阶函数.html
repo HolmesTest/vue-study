@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <script>
+    let numbers = [1,20,80,12,7,29];
+    let sum = numbers.filter(i => {return i>=20}).map(i=>{return i*2}).reduce((n,i)=>{
+      return i+n;
+    },0);
+    let x = numbers.filter(i => {return i>=20}).find(2);
+    console.log(sum)
+  </script>
+</body>
+</html>

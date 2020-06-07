@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <div id='app'>
+    <ul>
+      <li v-for="item in arrs" :key="item">{{item}}</li>
+    </ul>
+    <button @click="add">添加</button>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        arrs: ['A','B','C','x','D','E']
+      },
+      methods: {
+        add(){
+          let length = this.arrs.length;
+          let lastVal = this.arrs[length-1];
+          //字母转ascii码： str.charCodeAt()
+          //ascii码转字母： String.fromCharCode(ascii码);
+          //1、push方法就是响应式的 (可添加多个)
+          //this.arrs.push(String.fromCharCode(lastVal.charCodeAt()+1))
+          //2、改变某个元素的值就不是响应式的，可以使用splice函数，或者使用Vue.set
+          //this.arrs[0]="haha"
+          //this.arrs.splice(0,1,'haha');
+          //set(要修改的对象，索引，修改后的值)
+          Vue.set(this.arrs,0,'haha')
+          //3、pop方法 删除最后一个元素
+          //this.arrs.pop();
+          //4、shift方法  删除第一个元素
+          //this.arrs.shift();
+          //5、unshift() 在数组最前面添加元素 (可添加多个)
+          //this.arrs.unshift("aa");
+          //6、splice()  向/从数组中添加/删除/替换元素
+          //this.arrs.splice(2,1,'wasd');
+          //7、数组排序 默认是升序， 如要定义排序规则，则参数为规定排序顺序。必须是函数。
+          //this.arrs.sort();
+          //8、reverse 颠倒数组中元素的顺序
+          //this.arrs.reverse();
+        }
+      }
+    })
+  </script>
+</body>
+</html>

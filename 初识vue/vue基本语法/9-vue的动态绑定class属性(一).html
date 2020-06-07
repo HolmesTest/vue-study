@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    .active{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id='app'>
+    <h2 :class="active">{{message}}</h2>
+    <h2 :class="{active : isactive,line: isline}">{{message}}</h2>
+    <h2 :class="getClass()">{{message}}</h2>
+    <h2 :class="['active','line']">{{message}}</h2>
+    <h2 :class="[active,line]">{{message}}</h2>
+    <h2 :class="getArrayClass()">{{message}}</h2>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+     el: '#app',
+     data: {
+        message: 'hello Vue.js',
+        active: aaa,
+        line : bbb,
+        isactive: true,
+        isline: true
+      },
+      methods: {
+        getClass: function(){
+          return {active : this.isactive,line: this.isline};
+        },
+        getArrayClass: function(){
+          return [this.active,this.line];
+        }
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <div id='app'>
+    <h2>总价格：{{totalPrice}}</h2>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+     data: {
+        books: [
+          {id: 001,name: '老人与海',price: 119.01},
+          {id: 002,name: '丧钟为谁而鸣',price: 200.00},
+          {id: 003,name: '深入理解计算机原理',price: 87.00},
+          {id: 004,name: '现在操作系统',price: 90.00},
+        ]
+      },
+      computed: {
+        totalPrice: function(){
+          let result = 0.00;
+          for(let i = 0; i < this.books.length ; i++){
+            result += this.books[i].price
+          }
+          //es6循环写法：
+          //for(let i in this.books)
+          //for(let book of this.books)
+          return result;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

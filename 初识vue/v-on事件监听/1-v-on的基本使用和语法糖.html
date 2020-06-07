@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <div id='app'>
+    <button v-on:click="counter++">+</button>
+    <p>点击按钮'+':{{counter}}次</p>
+    <div>{{flag}}</div>
+    <button v-on:click="incrment">加</button>
+    <button @click="decrement">减</button>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+     data: {
+      counter: 0,
+      flag: 0
+      },
+      methods: {
+        incrment(){
+          this.flag++;
+        },
+        decrement(){
+          this.flag--;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

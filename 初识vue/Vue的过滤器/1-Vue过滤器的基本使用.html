@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <div id='app'>{{message | addPrefix}}</div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello Vue.js'
+      },
+      filters: {
+        addPrefix(msg){
+          return msg+" this is add filters result";
+        }
+      }
+    })
+  </script>
+</body>
+</html>

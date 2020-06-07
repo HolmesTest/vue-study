@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <div id='app'>
+    <cpn :cnum1="num1" 
+         :cnum2="num2"
+         @cum1changge="c1changge"
+         @cum2changge="c2changge"/>
+  </div>
+  <template id="cpn">
+    <div>
+      <h2>父组件的值:{{cnum1}}</h2>
+      <h2>子组件的值:{{cpnNum1}}</h2>
+      <input type="text" :value="cpnNum1" @input="cum1Click" @focus="clear"/>
+      <h2>父组件的值:{{cnum2}}</h2>
+      <h2>子组件的值:{{cpnNum2}}</h2>
+      <input type="text" :value="cpnNum2" @input="cum2Click" @focus="clear"/>
+    </div>
+  </template>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data:{
+        num1: 0,
+        num2: 0
+      },
+      methods: {
+        c1changge(para){
+          this.num1=parseInt(para)
+        },
+        c2changge(para){
+          this.num2=parseInt(para)
+        }
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          props:{
+            cnum1: {
+              type: Number,
+              require: true
+            },
+            cnum2: {
+              type: Number,
+              require: true
+            }
+          },
+          data(){
+            return{
+              cpnNum1: this.cnum1,
+              cpnNum2: this.cnum2
+            }
+          },
+          methods: {
+            cum1Click(event){
+              if(event.target.value == null || event.target.value ==''){
+                this.cpnNum1=0;
+              }else{
+                this.cpnNum1=event.target.value;
+              }
+              this.$emit("cum1changge",this.cpnNum1)
+              this.cpnNum2 = this.cpnNum1*100;
+              this.$emit("cum2changge",this.cpnNum2)
+            },
+            cum2Click(event){
+              if(event.target.value == null || event.target.value ==''){
+                this.cpnNum2=0;
+              }else{
+                this.cpnNum2=event.target.value;
+              }
+              this.cpnNum2=event.target.value;
+              this.$emit("cum2changge",this.cpnNum2)
+              this.cpnNum1 = this.cpnNum2/100;
+              this.$emit("cum1changge",this.cpnNum1)
+            },
+            clear(){
+              this.cpnNum1=''
+              this.cpnNum2=''
+            }
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

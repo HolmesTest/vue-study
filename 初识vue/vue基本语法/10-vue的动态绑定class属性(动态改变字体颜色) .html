@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    .active{
+      color: red;
+    }
+    .line{
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div id='app'>
+    <h2 :class="{active : isactive,line: isline}">{{message}}</h2>
+    <button @click="red">红</button>
+    <button @click="green">绿</button>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+     el: '#app',
+     data: {
+        message: 'hello Vue.js',
+        isactive: true,
+        isline: false
+      },
+      methods: {
+        red: function(){
+            console.log("add执行")
+            this.isline=false;
+            this.isactive=true;
+        },
+        green: function(params) {
+            console.log("sub执行")
+            this.isactive=false;
+            this.isline=true;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

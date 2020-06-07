@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div id="app"></div>
+    <script src="js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            beforeCreate: function () {
+                console.log("创建对象之前执行");
+            },
+            create: function () {
+                console.log("对象创建之后调用");
+            },
+            beforeMount: function(){
+                console.log("在挂载开始之前被调用：相关的 render 函数首次被调用");
+            },
+            mounted: function () {
+                console.log("实例被挂载后调用");
+            },
+            beforeUpdate: function () {
+                console.log("数据更新时调用，发生在虚拟 DOM 打补丁之前");
+            },
+            update: function(){
+                console.log("组件 DOM 更新后调用");
+            },
+            activated: function(){
+                console.log("被 keep-alive 缓存的组件激活时调用")
+            }
+        })
+    </script>
+</body>
+</html>

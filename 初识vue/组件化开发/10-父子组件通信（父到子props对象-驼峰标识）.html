@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <div id='app'>
+    <cpn :c-info="info" :child-message-content="message"></cpn>
+  </div>
+  </script>
+  <template id="cpn">
+    <div>
+      <h2>{{cInfo}}</h2>
+      <p>{{childMessageContent}}</p>
+    </div>
+  </template>
+  <script src='../js/vue.js'></script>
+  <script>
+    //父传子：props
+    const cpn = {
+      template: '#cpn',
+      props: {
+        cInfo: {
+          type: Object,
+          default(){
+            return{}
+          }
+        },
+        childMessageContent: {
+          type: String,
+          default: 'aaaa'
+        }
+      }
+    }
+    const app = new Vue({
+      el: '#app',
+      data: {
+        info: {
+          name: '张三',
+          age: 18,
+          sex: '男'
+        },
+        message: 'xxxx'
+      },
+      components: {
+        cpn
+      }
+    })
+  </script>
+</body>
+</html>

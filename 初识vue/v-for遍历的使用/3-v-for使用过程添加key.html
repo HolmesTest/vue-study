@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <div id='app'>
+    <ul>
+      <!--绑定index不能达到一一对应的要求，因为插入数据后index是会变的，所以此处绑定item-->
+      <li v-for="item in names" :key="item">{{item}}</li>
+    </ul>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+     data: {
+        names : ['A','B','C','D','E']
+      }
+    })
+  </script>
+</body>
+</html>

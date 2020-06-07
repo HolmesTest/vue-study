@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <div id='app'>
+    <cpn></cpn>
+    <cpn2></cpn2>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    //vue2.以前创建并注册组件
+    // const cpn = Vue.extend({
+    //   template: `
+    //     <div>
+    //       <cpn1></cpn1>
+    //       <h2>我是标题2</h2> 
+    //     </div>
+    //   `
+    // })
+    //Vue.component('cpn',cpn)
+    Vue.component('cpn',{
+      template: `
+        <div>
+          <h2>我是标题2</h2> 
+        </div>
+      `
+    })
+    const app = new Vue({
+      el: '#app',
+      components: {
+        'cpn2': {
+          template: `
+              <div>
+                <h2>我是标题3</h2> 
+              </div>
+            `
+        }
+      }
+    })
+  </script>
+</body>
+</html>

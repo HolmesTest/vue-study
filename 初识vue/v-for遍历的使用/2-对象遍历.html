@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <div id='app'>
+    <!--遍历对象的过程中，如果只是获取一个值，就是获取到的属性值-->
+    <ul>
+      <li v-for="(value,key) in info">{{key}}-{{value}}</li>
+    </ul>
+    <!--获取对象的index-->
+    <ul>
+      <li v-for="(value,key,index) in info">{{key}}-{{value}}--{{index}}</li>
+    </ul>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+     data: {
+        info :{
+          name: '张三',
+          sex: '男',
+          age: 30
+        } 
+      }
+    })
+  </script>
+</body>
+</html>

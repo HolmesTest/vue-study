@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <div id='app'>
+    <!--1、lazy:在用户按回车，或者input失去焦点时，才会改变数据-->
+    <div>
+      <input type="text" v-model.lazy="message">
+      <h2>message:{{message}}</h2>
+    </div>
+    <!--2、number:将用户输入的数据转换为number(默认v-model赋值为String)-->
+    <div>
+      <input type="number" v-model.number="age">
+      <h2>age:{{typeof age}}</h2>
+    </div>
+    <!--3、trim:去除字符串前后的空格-->
+    <div>
+      <input type="text" v-model="name">
+      <h2>name:{{name}}</h2>
+    </div>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: "哈哈",
+        age: 12,
+        name: ''
+      }
+    })
+  </script>
+</body>
+</html>
